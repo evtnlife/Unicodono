@@ -2,42 +2,30 @@ import styled from 'styled-components';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export const ListCategorias = styled.ul`
-  padding-left: 10px;
-  display: inline;
-  inline-size: auto;
-  list-style: none;
-  margin: 30px;
-  h2 {
-    display: flex;
-    align-self: auto;
-  }
-  ul {
-    display: inline;
-    padding: 0px;
-    margin: 0px;
-    background-color: #ededed;
+  display: grid;
+  grid-auto-flow: column;
+  margin: auto;
+  margin-top: 5px;
+  position: relative;
+
+  li {
     list-style: none;
-    li {
-      padding: 10px;
-      margin: 10px;
-      display: inline;
-      flex-direction: column;
-      background: #fff;
+    position: relative;
+    padding: 10px;
 
-      button {
-        position: flex;
-        width: 180px;
-        height: 230px;
-        padding: 20px;
-        border-radius: 15px;
-
-        img {
-          width: 100%;
-          height: 100%;
-          position: flex;
-          margin-top: -11px;
-        }
-      }
+    > h2 {
+      padding: 20px;
+      font-size: 20px;
+      color: #fff;
+      text-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+      position: absolute;
     }
+  }
+  img {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    margin: auto;
+    height: 200px;
+    width: 200px;
+    border-radius: 20px;
   }
 `;
