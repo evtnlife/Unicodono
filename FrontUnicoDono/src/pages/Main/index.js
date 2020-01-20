@@ -4,8 +4,8 @@
 /* eslint-disable react/prefer-stateless-function */
 import React, { Component } from 'react';
 import { BrowserRouter } from 'react-router-dom';
-import fundo from '../../assets/images/images.jfif';
 import ListCategorias from './../../Components/Categorias';
+import Filtro from './../../Components/Filtro';
 import { Container, Categoria, MaisBuscados, Blog } from './styles';
 
 export default class Main extends Component {
@@ -13,7 +13,7 @@ export default class Main extends Component {
     return (
       <BrowserRouter>
         <Container>
-          <img src={fundo} />
+          <Filtro class="dist" />
         </Container>
 
         <Categoria>
@@ -23,6 +23,7 @@ export default class Main extends Component {
 
         <MaisBuscados>
           <h2>Mais Buscados</h2>
+          <ListCategorias />
         </MaisBuscados>
 
         <Blog>

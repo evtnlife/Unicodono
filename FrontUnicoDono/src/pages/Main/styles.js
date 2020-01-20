@@ -2,34 +2,43 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   width: 100%;
+  position: relative;
+  margin: 0;
   height: 600px;
-  background: transparent;
+  background-image: radial-gradient(grey, #fff);
   transition: 0.2s;
-  img {
-    width: 100%;
-    height: 600px;
-  }
 `;
-
 export const Categoria = styled.div`
   height: 280px;
-  padding: 0px;
-  margin: 0px;
+  padding: 3px;
+  margin-left: 10px;
   background-color: #fff;
+  h2 {
+    font-size: 25px;
+    color: #5c6160;
+    opacity: 80%;
+  }
 `;
-export const MaisBuscados = styled.ul`
-  width: 100%;
-  height: 300px;
-  background: #fff;
-  transition: 0.2s;
+export const MaisBuscados = styled.div`
+  height: 280px;
+  padding: 3px;
+  margin-left: 10px;
+  background-color: #fff;
+  h2 {
+    font-size: 25px;
+    color: #5c6160;
+    opacity: 80%;
+  }
 `;
-export const Blog = styled.ul`
-  width: 100%;
-  height: 600px;
-  background: #993c78;
-  transition: 0.2s;
-  img {
-    width: 100%;
-    height: 600px;
+export const Blog = styled.div`
+  height: 280px;
+  padding: 3px;
+  margin-left: 10px;
+  background-color: #fff;
+
+  h2 {
+    font-size: 25px;
+    color: #5c6160;
+    opacity: 80%;
   }
 `;
