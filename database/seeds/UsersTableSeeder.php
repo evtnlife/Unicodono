@@ -11,10 +11,24 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
+        DB::table('endereco')->insert([
+            'rua' => "Moacir jose de oliveira souza",
+            'numero' => 30,
+            'complemento' => 'casa',
+            'bairro' => 'Santo Agostinho',
+            'cidade_id' => 10,
+        ]);
+        DB::table('plano')->insert([
+            'nome' => 'Plano Iniciante',
+            'duracao' => 30,
+            'valor' => 49.99,
+        ]);
         DB::table('users')->insert([
             'name' => 'teste',
             'email' => 'teste@gmail.com',
             'password' => bcrypt('teste'),
+            'endereco_id' => 1,
+            'plano_id' => 1
         ]);
     }
 }

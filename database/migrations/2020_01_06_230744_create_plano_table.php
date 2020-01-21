@@ -17,7 +17,7 @@ class CreatePlanoTable extends Migration
             $table->bigIncrements('id');
             $table->string('nome');
             $table->integer('duracao');
-            $table->decimal('valor',2);
+            $table->decimal('valor',9,2);
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ class CreatePlanoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Plano');
+        Schema::dropIfExists('plano');
     }
 }

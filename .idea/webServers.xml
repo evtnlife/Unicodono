@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="996bd139-9aa9-437e-ac97-29fac41ae5a8" name="ud" url="http://dev.unicodono.com.br">
+        <fileTransfer host="unicodono.com.br" port="22" rootFolder="/home/unicodonocom/dev.unicodono.com.br" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
