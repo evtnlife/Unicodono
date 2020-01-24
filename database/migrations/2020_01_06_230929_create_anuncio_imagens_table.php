@@ -13,7 +13,7 @@ class CreateAnuncioImagensTable extends Migration
      */
     public function up()
     {
-        Schema::create('AnuncioImagens', function (Blueprint $table){
+        Schema::create('anuncio_imagens', function (Blueprint $table){
             $table->bigIncrements('id');
             $table->string('path');
             $table->string('alt');
@@ -31,6 +31,6 @@ class CreateAnuncioImagensTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('AnuncioImagens');
+        Schema::dropIfExists('anuncio_imagens');
     }
 }

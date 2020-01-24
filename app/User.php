@@ -59,20 +59,19 @@ class User extends Authenticatable implements JWTSubject
     {
         return [];
     }
-    public function Endereco(){
-        return $this->hasOne('App\Endereco', 'endereco_id', 'id');
+    public function endereco(){
+        return $this->hasOne(Endereco::class, 'id', 'endereco_id');
     }
-    public function Plano(){
-        return $this->hasOne('App\Plano', 'plano_id', 'id');
+    public function plano(){
+        return $this->hasOne('App\Plano', 'id', 'plano_id');
     }
-    public function GeoLocalizacao(){
+    public function geoLocalizacao(){
         return $this->hasMany('App\GeoLocalizacao','user_id', 'id');
     }
-    public function Revenda(){
+    public function revenda(){
         return $this->hasMany('App\Revenda', 'user_id', 'id');
     }
-    public function Transaction(){
+    public function transaction(){
         return $this->hasMany('App\Transaction', 'user_id', 'id');
     }
-
 }

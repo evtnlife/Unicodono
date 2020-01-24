@@ -13,7 +13,11 @@ use Illuminate\Http\Request;
 |
 */
 
-
+/*
+|--------------------------------------------------------------------------
+| AUTH API Routes
+|--------------------------------------------------------------------------
+*/
 Route::group([
 
     'middleware' => 'api',
@@ -24,4 +28,17 @@ Route::group([
     Route::post('logout', 'AuthController@logout')->name('api-logout');
     Route::post('refresh', 'AuthController@refresh');
     Route::post('me', 'AuthController@me');
+
+});
+
+/*
+|--------------------------------------------------------------------------
+| API Routes
+|--------------------------------------------------------------------------
+*/
+Route::group([
+    'middleware' => 'api'
+], function ($router) {
+    Route::get('estados', 'EstadoController@index');
+    Route::get('cidades/{uf}', 'EstadoController@getCidadesByEstadoID');
 });

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class EstadoController extends Controller
 {
@@ -13,9 +14,30 @@ class EstadoController extends Controller
      */
     public function index()
     {
-        //
+        try {
+            $table =  DB::table('estado')->get();
+            return response()->json($table);
+            // Validate the value...
+        } catch (Exception $e) {
+            report($e);
+            return false;
+        }
     }
-
+    /**
+     * Exibe a lista de cidades pelo id do estado
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function getCidadesByEstadoID($uf)
+    {
+        try{
+            $table = DB::table('cidade')->join('estado', 'cidade.estado_id', '=', 'estado.id')->where('estado.id', '=', $uf)->get();
+            return response()->json($table);
+        }   catch (Exception $e) {
+            report($e);
+            return false;
+        }
+    }
     /**
      * Show the form for creating a new resource.
      *

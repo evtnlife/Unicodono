@@ -13,7 +13,7 @@ class CreateAnuncioDadosTable extends Migration
      */
     public function up()
     {
-        Schema::create('AnuncioDados', function (Blueprint $table){
+        Schema::create('anuncio_dados', function (Blueprint $table){
             $table->bigIncrements('id');
             $table->string('type');
             $table->string('value');
@@ -30,6 +30,6 @@ class CreateAnuncioDadosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('AnuncioDados');
+        Schema::dropIfExists('anuncio_dados');
     }
 }

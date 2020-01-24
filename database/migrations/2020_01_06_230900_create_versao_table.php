@@ -13,7 +13,7 @@ class CreateVersaoTable extends Migration
      */
     public function up()
     {
-        Schema::create('Versao', function (Blueprint $table){
+        Schema::create('versao', function (Blueprint $table){
             $table->bigIncrements('id');
             $table->string('nome');
             $table->bigInteger('modelo_id')->unsigned()->index();
@@ -29,6 +29,6 @@ class CreateVersaoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Versao');
+        Schema::dropIfExists('versao');
     }
 }

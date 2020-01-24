@@ -17,7 +17,7 @@ class Endereco extends Model
         'bairro',
         'cidade_id'
     ];
-    public function Endereco(){
+    public function Cidade(){
         return $this->belongsTo('App\Cidade', 'cidade_id', 'id')->with('Estado');
     }
 }

@@ -13,7 +13,7 @@ class CreateGeoLocalizacaoTable extends Migration
      */
     public function up()
     {
-        Schema::create('GeoLocalizacao', function(Blueprint $table){
+        Schema::create('geo_localizacao', function(Blueprint $table){
             $table->bigIncrements('id');
             $table->decimal('latitude', 10,7);
             $table->decimal('longitude', 10,7);
@@ -30,6 +30,6 @@ class CreateGeoLocalizacaoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('GeoLocalizacao');
+        Schema::dropIfExists('geo_localizacao');
     }
 }

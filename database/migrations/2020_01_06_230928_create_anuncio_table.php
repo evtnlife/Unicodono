@@ -13,7 +13,7 @@ class CreateAnuncioTable extends Migration
      */
     public function up()
     {
-        Schema::create('Anuncio', function (Blueprint $table){
+        Schema::create('anuncio', function (Blueprint $table){
             $table->bigIncrements('id');
             $table->enum('type', ['Normal', 'Revenda', 'XML']);
             $table->enum('categoria', ['Carro', 'Moto', 'Caminhão', 'Onibus']);
@@ -27,7 +27,7 @@ class CreateAnuncioTable extends Migration
             $table->bigInteger('user_id')->unsigned()->index();
             $table->bigInteger('versao_id')->unsigned()->index();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('versao_id')->references('id')->on('Versao')->onDelete('cascade');
+            $table->foreign('versao_id')->references('id')->on('versao')->onDelete('cascade');
             $table->timestamps();
         });
     }

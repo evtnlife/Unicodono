@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use Tymon\JWTAuth\JWTAuth;
+use App\User;
 
 class AuthController extends Controller
 {
@@ -41,7 +42,12 @@ class AuthController extends Controller
      */
     public function me()
     {
-        return response()->json(auth()->user());
+        try{
+            $user = auth()->user();
+            return response()->json($user->with('endereco')->with('plano')->get());
+        }catch (Exception $ex){
+            return response()->json(['status' => 'Autentication Failed'],404);
+        }
     }
 
     /**

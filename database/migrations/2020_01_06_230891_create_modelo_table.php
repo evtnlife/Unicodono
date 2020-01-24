@@ -13,7 +13,7 @@ class CreateModeloTable extends Migration
      */
     public function up()
     {
-        Schema::create('Modelo', function (Blueprint $table){
+        Schema::create('modelo', function (Blueprint $table){
             $table->bigIncrements('id');
             $table->string('nome');
             $table->bigInteger('marca_id')->unsigned()->index();
@@ -29,6 +29,6 @@ class CreateModeloTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Modelo');
+        Schema::dropIfExists('modelo');
     }
 }
