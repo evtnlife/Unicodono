@@ -5,7 +5,7 @@ export const Container = styled.div`
   position: relative;
   margin: 0;
   height: 600px;
-  background-image: radial-gradient(grey, #fff);
+  background-image: linear-gradient(#03598f, #fff);
   transition: 0.2s;
 `;
 export const Categoria = styled.div`

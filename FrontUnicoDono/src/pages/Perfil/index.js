@@ -2,6 +2,6 @@ import React from 'react';
 
 // import { Container } from './styles';
 
-export default function TabelaFipe() {
-  return <h1>TABELAFIPE</h1>;
+export default function Perfil() {
+  return <h1>PERFIL</h1>;
 }

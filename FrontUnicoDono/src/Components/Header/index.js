@@ -18,7 +18,7 @@ export default function Header() {
         <Link to="/vender">Vender</Link>
         <Link to="/servicos">Serviços</Link>
         <Link to="/ajuda">Ajuda</Link>
-        <Link to="/login" class="login">
+        <Link to="/login" className="login">
           <div>
             <FaUserCircle size={20} color="#3c3d40" />
           </div>

@@ -3,7 +3,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable react/prefer-stateless-function */
 import React, { Component } from 'react';
-import { BrowserRouter } from 'react-router-dom';
+// import { BrowserRouter } from 'react-router-dom';
 import ListCategorias from './../../Components/Categorias';
 import Filtro from './../../Components/Filtro';
 import { Container, Categoria, MaisBuscados, Blog } from './styles';
@@ -11,9 +11,9 @@ import { Container, Categoria, MaisBuscados, Blog } from './styles';
 export default class Main extends Component {
   render() {
     return (
-      <BrowserRouter>
+      <>
         <Container>
-          <Filtro class="dist" />
+          <Filtro className="dist" />
         </Container>
 
         <Categoria>
@@ -29,7 +29,7 @@ export default class Main extends Component {
         <Blog>
           <h2>Blog</h2>
         </Blog>
-      </BrowserRouter>
+      </>
     );
   }
 }
