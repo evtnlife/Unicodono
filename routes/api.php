@@ -28,7 +28,11 @@ Route::group([
     Route::post('logout', 'AuthController@logout')->name('api-logout');
     Route::post('refresh', 'AuthController@refresh');
     Route::post('me', 'AuthController@me');
-
+    Route::post('revenda/create', 'RevendaController@create');
+    Route::post('revenda/update', 'RevendaController@update');
+    Route::post('revenda/destroy', 'RevendaController@destroy');
+    Route::get('revenda', 'RevendaController@index');
+    Route::get('plano', 'PlanoController@index');
 });
 
 /*
@@ -39,6 +43,7 @@ Route::group([
 Route::group([
     'middleware' => 'api'
 ], function ($router) {
+    Route::post('cadastro', 'Auth\RegisterController@create');
     Route::get('estados', 'EstadoController@index');
     Route::get('cidades/{uf}', 'EstadoController@getCidadesByEstadoID');
 });

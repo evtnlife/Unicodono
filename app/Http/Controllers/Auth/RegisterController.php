@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Endereco;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Http\Request;
 
 class RegisterController extends Controller
 {
@@ -62,12 +64,33 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\User
      */
-    protected function create(array $data)
+    protected function create(Request $data)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-        ]);
+        try{
+            $endereco = Endereco::create([
+                'bairro' => $data['bairro'],
+                'complemento' => $data['complemento'],
+                'numero' => $data['numero'],
+                'rua' => $data['rua'],
+                'cidade_id' => $data['cidade_id']
+            ]);
+            $user = User::create([
+                'name' => $data['name'],
+                'email' => $data['email'],
+                'password' => bcrypt($data['password']),
+                'plano_id' => $data['plano_id'],
+                'endereco_id' => $endereco->id,
+                'documento' => $data['documento'],
+                'doc_tipo' => $data['doc_tipo'] = 0 ? "cpf" : "cnpj"
+            ]);
+            $user['status'] = "Usuario ".$user['name']." criado com sucesso!";
+            return response()->json($user, 200);
+        }catch (\Exception $ex){
+            $data = [
+                'status' => "Falha ao criar usuario ".$data['name'],
+                'expetion' => $ex->getMessage()
+            ];
+            return response()->json($data, 404);
+        }
     }
 }

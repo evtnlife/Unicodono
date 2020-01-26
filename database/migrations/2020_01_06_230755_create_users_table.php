@@ -23,6 +23,8 @@ class CreateUsersTable extends Migration
             $table->foreign('endereco_id')->references('id')->on('endereco');
             $table->bigInteger('plano_id')->unsigned()->index();
             $table->foreign('plano_id')->references('id')->on('plano');
+            $table->string('documento', 250)->unique();
+            $table->enum('doc_tipo', ['cpf', 'cnpj']);
             $table->rememberToken();
             $table->timestamps();
         });
@@ -35,6 +37,8 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('users');
+        Schema::enableForeignKeyConstraints();
     }
 }

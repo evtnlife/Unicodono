@@ -2,10 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Plano;
 use Illuminate\Http\Request;
 
 class PlanoController extends Controller
 {
+    /**
+     * Create a new AuthController instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +23,8 @@ class PlanoController extends Controller
      */
     public function index()
     {
-        //
+        $find = Plano::all();
+        return response()->json($find);
     }
 
     /**

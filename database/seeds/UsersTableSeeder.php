@@ -16,7 +16,7 @@ class UsersTableSeeder extends Seeder
             'numero' => 30,
             'complemento' => 'casa',
             'bairro' => 'Santo Agostinho',
-            'cidade_id' => 10,
+            'cidade_id' => 10
         ]);
         DB::table('plano')->insert([
             'nome' => 'Plano Iniciante',
@@ -28,7 +28,9 @@ class UsersTableSeeder extends Seeder
             'email' => 'teste@gmail.com',
             'password' => bcrypt('teste'),
             'endereco_id' => 1,
-            'plano_id' => 1
+            'plano_id' => 1,
+            'documento' => '32333333333',
+            'doc_tipo' => 0
         ]);
     }
 }

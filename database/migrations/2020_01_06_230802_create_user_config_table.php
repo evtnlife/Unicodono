@@ -29,6 +29,6 @@ class CreateUserConfigTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('userconfig');
+        Schema::dropIfExists('user_config');
     }
 }
