@@ -1,6 +1,7 @@
 // Responsavel por deixar todos os estilos que sao usado por mais de um component
 
 import { createGlobalStyle } from 'styled-components';
+import 'react-toastify/dist/ReactToastify.css';
 
 // Tudo colocado aqui dentro sera usado em toda aplicação
 export default createGlobalStyle`

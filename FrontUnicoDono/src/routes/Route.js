@@ -1,14 +1,17 @@
+/* eslint-disable import/no-unresolved */
 /* eslint-disable react/self-closing-comp */
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Route, Redirect } from 'react-router-dom';
 
-import AuthLayout from '../pages/_layouts/auth';
+import AuthLayout from '~/pages/_layouts/auth';
 import DefaultLayout from '../pages/_layouts/default';
 
 import { store } from '~/store';
 
+// Função para limitar rotas de cadastro, apenas usaurios com isPrivate = true,
+// tem acesso a algumas páginas
 export default function RouteWrapper({
   component: Component,
   isPrivate = false,
@@ -21,7 +24,7 @@ export default function RouteWrapper({
   }
 
   if (signed && !isPrivate) {
-    return <Redirect to="/login" />;
+    return <Redirect to="/api/auth/login" />;
   }
   const Layout = signed ? DefaultLayout : AuthLayout;
 

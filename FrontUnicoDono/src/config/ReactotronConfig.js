@@ -1,3 +1,5 @@
+/* eslint-disable import/no-unresolved */
+// Configuração para usar o Reactotron
 import Reactotron from 'reactotron-react-js';
 import { reactotronRedux } from 'reactotron-redux';
 import reactotronSaga from 'reactotron-redux-saga';

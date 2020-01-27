@@ -1,4 +1,7 @@
+/* eslint-disable import/extensions */
+/* eslint-disable import/no-unresolved */
 /* eslint-disable jsx-a11y/alt-text */
+// Componente do menu principal
 import React from 'react';
 
 import { Link } from 'react-router-dom';
@@ -18,7 +21,7 @@ export default function Header() {
         <Link to="/vender">Vender</Link>
         <Link to="/servicos">Serviços</Link>
         <Link to="/ajuda">Ajuda</Link>
-        <Link to="/login" className="login">
+        <Link to="/api/auth/login" className="login">
           <div>
             <FaUserCircle size={20} color="#3c3d40" />
           </div>

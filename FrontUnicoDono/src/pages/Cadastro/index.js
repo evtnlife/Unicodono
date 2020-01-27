@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unresolved */
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Form, Input } from '@rocketseat/unform';
@@ -34,7 +35,7 @@ export default function Cadastro() {
 
         <button type="submit">Criar Conta</button>
 
-        <Link to="/login">Sign In</Link>
+        <Link to="/api/auth/login">Sign In</Link>
       </Form>
     </>
   );

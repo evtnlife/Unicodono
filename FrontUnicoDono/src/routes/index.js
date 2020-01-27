@@ -1,3 +1,6 @@
+/* eslint-disable import/extensions */
+/* eslint-disable import/no-unresolved */
+// Classe de registro de rotas
 import React from 'react';
 import { Switch } from 'react-router-dom';
 import Route from './Route';
@@ -14,13 +17,11 @@ export default function Routes() {
     <Switch>
       <Route path="/" exact component={Main} />
       <Route path="/register" component={Cadastro} />
-      <Route path="/login" component={Login} />
+      <Route path="/api/auth/login/" component={Login} />
       <Route path="/produtos" component={Carros} />
 
-      <Route path="/dashboard" componet={Dashboard} isPrivate />
+      <Route path="/dashboard" componet={Dashboard} />
       <Route path="/perfil" component={Perfil} isPrivate />
-
-      <Route path="/" component={() => <h1>404</h1>} />
     </Switch>
   );
 }

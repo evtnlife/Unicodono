@@ -1,7 +1,8 @@
+/* eslint-disable import/extensions */
 /* eslint-disable import/no-unresolved */
 /* eslint-disable react/prefer-stateless-function */
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Form, Input } from '@rocketseat/unform';
 import * as Yup from 'yup';
@@ -17,6 +18,7 @@ const schema = Yup.object().shape({
 
 export default function Login() {
   const dispatch = useDispatch();
+  const loading = useSelector(state => state.auth.loading);
   // Função que recebe os dados do form
   function handleSubmit({ email, password }) {
     dispatch(signInRequest(email, password));
@@ -33,7 +35,7 @@ export default function Login() {
           placeholder="Sua senha secreta"
         />
 
-        <button type="submit">Acessar</button>
+        <button type="submit">{loading ? 'Carregando...' : 'Acessar'}</button>
 
         <Link to="/register">Crie sua conta gratuitamente!</Link>
       </Form>

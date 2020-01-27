@@ -1,3 +1,4 @@
+// Componente do box de filtros
 import React from 'react';
 
 import { FaSearch } from 'react-icons/fa';
