@@ -29,7 +29,7 @@ class AuthController extends Controller
         $credentials = request(['email', 'password']);
 
         if (! $token = $auth->attempt($credentials)) {
-            return response()->json(['error' => 'Unauthorized'], 401);
+            return response()->json(['status' => 'Usuario não autorizado.'], 401);
         }
 
         return $this->respondWithToken($token);
@@ -44,7 +44,7 @@ class AuthController extends Controller
     {
         try{
             $user = auth()->user();
-            return response()->json($user->with('endereco')->with('plano')->get());
+            return response()->json($user->with('endereco')->with('plano')->where('id', $user->id)->get());
         }catch (Exception $ex){
             return response()->json(['status' => 'Autentication Failed'],404);
         }
@@ -58,7 +58,7 @@ class AuthController extends Controller
     public function logout()
     {
         Auth::guard('api')->logout();
-        return response()->json(['message' => 'Successfully logged out']);
+        return response()->json(['status' => 'Deslogado com sucesso!']);
     }
 
     /**

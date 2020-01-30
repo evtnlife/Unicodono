@@ -6,7 +6,6 @@
  * @package  Laravel
  * @author   Taylor Otwell <taylor@laravel.com>
  */
-
 define('LARAVEL_START', microtime(true));
 
 /*
@@ -20,9 +19,7 @@ define('LARAVEL_START', microtime(true));
 | loading any of our classes later on. It feels great to relax.
 |
 */
-
 require __DIR__.'/../vendor/autoload.php';
-
 /*
 |--------------------------------------------------------------------------
 | Turn On The Lights

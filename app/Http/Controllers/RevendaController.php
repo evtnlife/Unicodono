@@ -41,7 +41,6 @@ class RevendaController extends Controller
      */
     public function create(Request $request)
     {
-
         $data = $request->all();
         try{
             if(Auth::check()) {

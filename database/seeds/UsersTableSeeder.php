@@ -24,13 +24,24 @@ class UsersTableSeeder extends Seeder
             'valor' => 49.99,
         ]);
         DB::table('users')->insert([
+            'name' => 'admin',
+            'email' => 'admin@gmail.com',
+            'password' => bcrypt('admin'),
+            'endereco_id' => 1,
+            'plano_id' => 1,
+            'documento' => '32333333333',
+            'doc_tipo' => 0,
+            'type' => 1
+        ]);
+        DB::table('users')->insert([
             'name' => 'teste',
             'email' => 'teste@gmail.com',
             'password' => bcrypt('teste'),
             'endereco_id' => 1,
             'plano_id' => 1,
-            'documento' => '32333333333',
-            'doc_tipo' => 0
+            'documento' => '32333333345',
+            'doc_tipo' => 0,
+            'type' => 0
         ]);
     }
 }
