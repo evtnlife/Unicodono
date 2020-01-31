@@ -3,9 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\UserConfig;
 
 class UserConfigController extends Controller
 {
+    /**
+     * Create a new AuthController instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth:api');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +24,19 @@ class UserConfigController extends Controller
      */
     public function index()
     {
-        //
+        try{
+            if(Auth::check()) {
+                $userConfigs = UserConfig::where('user_id', Auth::user()->id)->get();
+                return response()->json($userConfigs->toArray(), 200);
+            }
+            throw new \Exception('Usuario não autenticado.');
+        }catch (\Exception $ex){
+            $fail = [
+                'status' => "Falha ao obter lista de configurações",
+                'exception' => $ex->getMessage()
+            ];
+            return response()->json($fail, 404);
+        }
     }
 
     /**
@@ -21,31 +44,26 @@ class UserConfigController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
+        try{
+            $request = $request->all();
+            if(Auth::check()) {
+                $userConfigs = UserConfig::create([
+                    'type' => $request['type'],
+                    'value' => $request['value'],
+                    'user_id' => Auth::user()->id
+                ]);
+                return response()->json($userConfigs->toArray(), 200);
+            }
+            throw new Exception('Usuario não autenticado.');
+        }catch (\Exception $ex){
+            $fail = [
+                'status' => "Falha ao criar configuração",
+                'exception' => $ex->getMessage()
+            ];
+            return response()->json($fail, 404);
+        }
     }
 
     /**
@@ -54,21 +72,24 @@ class UserConfigController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request)
     {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
+        try{
+            $request = $request->all();
+            if(Auth::check()) {
+                $userConfigs = UserConfig::where('user_id', Auth::user()->id)->where('id', $request['id'])->first();
+                $userConfigs->value = $request['value'];
+                $userConfigs->save();
+                return response()->json($userConfigs->toArray(), 200);
+            }
+            throw new Exception('Usuario não autenticado.');
+        }catch (\Exception $ex){
+            $fail = [
+                'status' => "Falha ao editar configurações",
+                'exception' => $ex->getMessage()
+            ];
+            return response()->json($fail, 404);
+        }
     }
 
     /**
@@ -77,8 +98,21 @@ class UserConfigController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        try{
+            $request = $request->all();
+            if(Auth::check()) {
+                UserConfig::find($request['id'])->delete();
+                return response()->json(array('status' => 'Configuração deletada com sucesso!'), 200);
+            }
+            throw new Exception('Usuario não autenticado.');
+        }catch (\Exception $ex){
+            $fail = [
+                'status' => "Falha ao deletar configuração.",
+                'exception' => $ex->getMessage()
+            ];
+            return response()->json($fail, 404);
+        }
     }
 }

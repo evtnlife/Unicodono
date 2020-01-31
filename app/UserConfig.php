@@ -8,7 +8,7 @@ class UserConfig extends Model
 {
     protected $table = 'user_config';
     protected $primaryKey = 'id';
-    public $timestamps = true;
+    public $timestamps = false;
     protected $fillable = [
         'id',
         'type',

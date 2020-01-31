@@ -44,7 +44,7 @@ class AuthController extends Controller
     {
         try{
             $user = auth()->user();
-            return response()->json($user->with('endereco')->with('plano')->where('id', $user->id)->get());
+            return response()->json($user->with('endereco')->with('plano')->with('config')->where('id', $user->id)->get());
         }catch (Exception $ex){
             return response()->json(['status' => 'Autentication Failed'],404);
         }

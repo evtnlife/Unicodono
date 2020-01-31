@@ -29,7 +29,7 @@ class RevendaController extends Controller
         }catch (\Exception $ex){
             $fail = [
                 'status' => "Falha ao deletar revenda",
-                'expetion' => $ex->getMessage()
+                'exception' => $ex->getMessage()
             ];
             return response()->json($fail, 404);
         }
@@ -59,7 +59,7 @@ class RevendaController extends Controller
         }catch (\Exception $ex){
             $fail = [
                 'status' => "Falha ao criar revenda ".$data['nome'],
-                'expetion' => $ex->getMessage()
+                'exception' => $ex->getMessage()
             ];
             return response()->json($fail, 404);
         }
@@ -93,7 +93,7 @@ class RevendaController extends Controller
         }catch (\Exception $ex){
             $fail = [
                 'status' => "Falha ao editar revenda ".$data['nome'],
-                'expetion' => $ex->getMessage()
+                'exception' => $ex->getMessage()
             ];
             return response()->json($fail, 404);
         }
@@ -122,7 +122,7 @@ class RevendaController extends Controller
         }catch (\Exception $ex){
             $fail = [
                 'status' => "Falha ao deletar revenda",
-                'expetion' => $ex->getMessage()
+                'exception' => $ex->getMessage()
             ];
             return response()->json($fail, 404);
         }

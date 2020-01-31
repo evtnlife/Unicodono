@@ -88,7 +88,7 @@ class RegisterController extends Controller
         }catch (\Exception $ex){
             $data = [
                 'status' => "Falha ao criar usuario ".$data['name'],
-                'expetion' => $ex->getMessage()
+                'exception' => $ex->getMessage()
             ];
             return response()->json($data, 404);
         }

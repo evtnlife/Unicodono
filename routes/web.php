@@ -12,7 +12,9 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
-})->name('welcome');
+    return response()->json([
+        'status' => "Acesso permitido apenas a usuarios logados.",
+    ], 200);
+})->name('logoff');
 
 Route::get('/home', 'HomeController@index')->name('home');

@@ -24,19 +24,38 @@ Route::group([
     'prefix' => 'auth'
 
 ], function ($router) {
+    ////////////////////////////////////
+    // Login route
+    ////////////////////////////////////
     Route::post('login', 'AuthController@login');
     Route::post('logout', 'AuthController@logout')->name('api-logout');
     Route::post('refresh', 'AuthController@refresh');
     Route::post('me', 'AuthController@me');
-
+    ////////////////////////////////////
     //Revenda
+    ////////////////////////////////////
     Route::post('revenda/create', 'RevendaController@create');
     Route::post('revenda/update', 'RevendaController@update');
     Route::post('revenda/destroy', 'RevendaController@destroy');
     Route::get('revenda', 'RevendaController@index');
+    ////////////////////////////////////
     //Plano
+    ////////////////////////////////////
     Route::post('plano/create', 'PlanoController@create');
     Route::post('plano/edit', 'PlanoController@edit');
+    ////////////////////////////////////
+    //Transaction
+    ////////////////////////////////////
+    Route::post('transaction/create', 'TransactionController@create');
+    Route::get('transaction', 'TransactionController@show');
+    ////////////////////////////////////
+    //UserConfig
+    ////////////////////////////////////
+    Route::post('user/config/create', 'UserConfigController@create');
+    Route::post('user/config/edit', 'UserConfigController@edit');
+    Route::get('user/config/', 'UserConfigController@index');
+    Route::post('user/config/delete', 'UserConfigController@destroy');
+
 });
 
 /*
