@@ -35,18 +35,25 @@
         }
     },
     "autoload": {
+
         "psr-4": {
             "App\\": "app/"
         },
         "classmap": [
             "database/seeds",
             "database/factories"
+        ],
+        "files": [
+            "app/Helpers/RequestHelper.php"
         ]
     },
     "autoload-dev": {
         "psr-4": {
             "Tests\\": "tests/"
-        }
+        },
+        "files": [
+            "app/Helpers/RequestHelper.php"
+        ]
     },
     "minimum-stability": "dev",
     "prefer-stable": true,

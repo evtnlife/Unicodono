@@ -18,12 +18,13 @@ class CreateAnuncioTable extends Migration
             $table->enum('type', ['Normal', 'Revenda', 'XML']);
             $table->enum('categoria', ['Carro', 'Moto', 'Caminhão', 'Onibus']);
             $table->decimal('valor', 2);
-            $table->integer('km');
-            $table->integer('ano_fabricacao');
-            $table->integer('ano_modelo');
-            $table->boolean('patrocinado');
-            $table->boolean('unicodono');
+            $table->integer('km')->nullable();
+            $table->integer('ano_fabricacao')->nullable();
+            $table->integer('ano_modelo')->nullable();
+            $table->boolean('patrocinado')->nullable();
+            $table->boolean('unicodono')->nullable();
             $table->string('titulo');
+            $table->boolean('ativo')->default(0);
             $table->bigInteger('user_id')->unsigned()->index();
             $table->bigInteger('versao_id')->unsigned()->index();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

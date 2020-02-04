@@ -24,16 +24,16 @@ class Anuncio extends Model
         'versao_id'
     ];
 
-    public function User(){
+    public function user(){
         return $this->belongsTo('App\User');
     }
-    public function Versao(){
+    public function versao(){
         return $this->belongsTo('App\Versao');
     }
-    public function Imagens(){
+    public function imagens(){
         return $this->hasMany('App\AnuncioImagens', 'anuncio_id','id');
     }
-    public function Dados(){
+    public function dados(){
         return $this->hasMany('App\AnuncioDados', 'anuncio_id','id');
     }
 }

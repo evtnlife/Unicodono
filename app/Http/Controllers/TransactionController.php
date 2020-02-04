@@ -19,7 +19,6 @@ class TransactionController extends Controller
         $this->middleware('auth:api', ['except' => ['index']]);
     }
 
-
     /**
      * Show the form for creating a new resource.
      *

@@ -55,6 +55,8 @@ Route::group([
     Route::post('user/config/edit', 'UserConfigController@edit');
     Route::get('user/config/', 'UserConfigController@index');
     Route::post('user/config/delete', 'UserConfigController@destroy');
+    //Anuncio
+    Route::post('anuncio/create', 'AnuncioController@create');
 
 });
 
@@ -70,4 +72,8 @@ Route::group([
     Route::get('estados', 'EstadoController@index');
     Route::get('cidades/{uf}', 'EstadoController@getCidadesByEstadoID');
     Route::get('plano', 'PlanoController@index');
+    ////////////////////////////////////
+    //FIPE
+    ////////////////////////////////////
+    Route::get('fipe/marcas', 'FipeController@GetMarcas');
 });

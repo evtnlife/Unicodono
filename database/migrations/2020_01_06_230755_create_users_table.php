@@ -20,9 +20,9 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->smallInteger('type')->default(0);
             $table->string('password');
-            $table->bigInteger('endereco_id')->unsigned()->index();
+            $table->bigInteger('endereco_id')->unsigned()->index()->nullable();
             $table->foreign('endereco_id')->references('id')->on('endereco');
-            $table->bigInteger('plano_id')->unsigned()->index();
+            $table->bigInteger('plano_id')->unsigned()->index()->nullable();
             $table->foreign('plano_id')->references('id')->on('plano');
             $table->string('documento', 250)->unique();
             $table->enum('doc_tipo', ['cpf', 'cnpj']);
